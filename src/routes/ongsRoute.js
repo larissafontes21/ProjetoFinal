@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/all", controller.findAllOngs);
 
-//router.get("/:id", controller.findConsoleById);
+router.get("/area", controller.findOngByArea);
 
 router.post("/add", controller.addNewOng);
 

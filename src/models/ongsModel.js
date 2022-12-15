@@ -19,10 +19,7 @@ const OngSchema = mongoose.Schema(
           type: String,
           required: true,
       },
-      senha: {
-          type: String,
-          required: true,
-      },
+
       endereco: {
           type: String,
           required: true,

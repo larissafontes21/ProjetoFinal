@@ -5,8 +5,6 @@ const router = express.Router();
 
 router.get("/all", controller.findAllAtividades);
 
-//router.get("/:id", controller.findGameById);
-
 router.post("/add", controller.addNewAtividade);
 
 router.patch("/:id", controller.updateAtividade);

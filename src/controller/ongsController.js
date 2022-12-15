@@ -1,6 +1,6 @@
 const OngsModel = require("../models/ongsModel");
 
-const findAllOngs = async (req, res) => {  //done - teste ok
+const findAllOngs = async (req, res) => {  
   try {
     const allOngs = await OngsModel.find();
     res.status(200).json(allOngs);
@@ -10,23 +10,23 @@ const findAllOngs = async (req, res) => {  //done - teste ok
   };
 };
 
-/*const findConsoleById = async (req, res) => {
+const findOngByArea = async (req, res) => {
   try {
-    const findConsole = await ConsolesModel.findById(req.params.id);
-    res.status(200).json(findConsole);
+  const filtroArea = req.query.area.toLowerCase()
+    const findOng = await OngsModel.find({area: filtroArea})
+    res.status(200).json(findOng);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
   };
-}; */
+}; 
 
-const addNewOng = async (req, res) => {  //done - teste ok
+const addNewOng = async (req, res) => {  
   try {
     const {
       nome,
       representante,
       email,
-      senha,
       endereco,
       telefone,
       site,
@@ -37,7 +37,6 @@ const addNewOng = async (req, res) => {  //done - teste ok
         nome,
         representante,
         email,
-        senha,
         endereco,
         telefone,
         site,
@@ -54,13 +53,12 @@ const addNewOng = async (req, res) => {  //done - teste ok
   };
 };
 
-const updateOng = async (req, res) => { //done - teste ok 
+const updateOng = async (req, res) => {  
   try {
     const {
         nome,
         representante,
         email,
-        senha,
         endereco,
         telefone,
         area,
@@ -70,7 +68,6 @@ const updateOng = async (req, res) => { //done - teste ok
         nome,
         representante,
         email,
-        senha,
         endereco,
         telefone,
         area,
@@ -84,7 +81,7 @@ const updateOng = async (req, res) => { //done - teste ok
   };
 };
 
-const deleteOng = async (req, res) => { //done - teste ok 
+const deleteOng = async (req, res) => {  
   try {
     const { id } = req.params;
     const deleteOng = await OngsModel.findByIdAndDelete(id);
@@ -101,4 +98,5 @@ module.exports = {
     addNewOng,
     updateOng,
     deleteOng,
+    findOngByArea,
 };

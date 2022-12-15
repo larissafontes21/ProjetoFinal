@@ -10,20 +10,6 @@ const findAllAtividades = async (req, res) => { //done - test ok
   };
 };
 
-/*const findGameById = async (req, res) => {
-  try {
-    const findGame = await GamesModel.findById(req.params.id).populate(
-      "console"
-    );
-    if (findGame == null) {
-      res.status(404).json({ message: "Game not available" });
-    }
-    res.status(200).json(findGame);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  };
-}; */
-
 const addNewAtividade = async (req, res) => {  //done - test ok
   try {
     const {
