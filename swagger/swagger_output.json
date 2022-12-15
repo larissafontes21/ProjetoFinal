@@ -25,6 +25,26 @@
         }
       }
     },
+    "/saibamulher/ongs/area": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "area",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/saibamulher/ongs/add": {
       "post": {
         "description": "",
@@ -42,9 +62,6 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
-                },
-                "senha": {
                   "example": "any"
                 },
                 "endereco": {
@@ -99,9 +116,6 @@
                   "example": "any"
                 },
                 "email": {
-                  "example": "any"
-                },
-                "senha": {
                   "example": "any"
                 },
                 "endereco": {

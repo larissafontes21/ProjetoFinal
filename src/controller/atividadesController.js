@@ -1,7 +1,7 @@
 const AtividadesModel = require("../models/atividadesModel");
 const OngsModel = require("../models/ongsModel");
 
-const findAllAtividades = async (req, res) => { //done - test ok
+const findAllAtividades = async (req, res) => { 
   try {
     const allAtividades = await AtividadesModel.find().populate("ong");
     res.status(200).json(allAtividades);
@@ -10,7 +10,7 @@ const findAllAtividades = async (req, res) => { //done - test ok
   };
 };
 
-const addNewAtividade = async (req, res) => {  //done - test ok
+const addNewAtividade = async (req, res) => {  
   try {
     const {
       ongId,
@@ -24,13 +24,13 @@ const addNewAtividade = async (req, res) => {  //done - test ok
     if (!ongId) {
       return res
         .status(400)
-        .json({ message: "Required: Enter the Console id." });
+        .json({ message: "Informar o id da Ong." });
     };
 
     const findOng = await OngsModel.findById(ongId);
 
     if (!findOng) {
-      return res.status(404).json({ message: "Ong not found" });
+      return res.status(404).json({ message: "Ong não encontrada" });
     };
 
     const newAtividade = new AtividadesModel({
@@ -51,7 +51,7 @@ const addNewAtividade = async (req, res) => {  //done - test ok
   };
 };
 
-const updateAtividade = async (req, res) => {  //done / teste ok - erros não mostram msg
+const updateAtividade = async (req, res) => {  
   try {
     const { id } = req.params;
     const {
@@ -77,7 +77,7 @@ const updateAtividade = async (req, res) => {  //done / teste ok - erros não mo
   };
 };
 
-const deleteAtividade = async (req, res) => { //done / teste ok -
+const deleteAtividade = async (req, res) => { 
     try{
     const { id } = req.params;
     const findAtividades = await AtividadesModel.findById(id);
